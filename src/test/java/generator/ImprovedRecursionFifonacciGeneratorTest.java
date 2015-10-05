@@ -1,0 +1,59 @@
+package generator;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+import static org.junit.Assert.*;
+
+// http://www.maths.surrey.ac.uk/hosted-sites/R.Knott/Fibonacci/fibtable.html
+public class ImprovedRecursionFifonacciGeneratorTest {
+    private FibonacciGenerator generator;
+
+    @Before
+    public void setUp() throws Exception {
+        generator = new ImprovedRecursionFifonacciGenerator();
+    }
+
+    @After
+    public void tearDown() throws Exception {
+        generator = null;
+    }
+
+    @Test
+    public void testGeneratorWithInitialValues() throws Exception {
+        long zero = generator.getNumber(0);
+        assertEquals(0L, zero);
+        long one = generator.getNumber(1);
+        assertEquals(1L, one);
+    }
+
+    @Test
+    public void testGeneratorWithConfiguration() throws Exception {
+        FibonacciGenerator generatorWithConfiguration = new ImprovedRecursionFifonacciGenerator(
+                FibonacciConfiguration.ONE_BASE);
+        assertEquals(1L, generatorWithConfiguration.getNumber(0));
+        assertEquals(1L, generatorWithConfiguration.getNumber(1));
+    }
+
+    @Test
+    public void testGetNumberWithFive() throws Exception {
+        assertEquals(5L, generator.getNumber(5));
+    }
+
+    @Test
+    public void testGetNumberWithTwenty() throws Exception {
+        assertEquals(6765L, generator.getNumber(20));
+    }
+
+    @Test
+    public void testGetNumberWithThirtyEight() throws Exception {
+        assertEquals(39088169L, generator.getNumber(38));
+    }
+
+    @Test
+    public void testGetNumberWithMaxLongSize() throws Exception {
+        assertEquals(7540113804746346429L, generator.getNumber(92));
+    }
+
+}
