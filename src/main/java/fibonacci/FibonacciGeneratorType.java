@@ -1,5 +1,5 @@
 package fibonacci;
 
 public enum FibonacciGeneratorType {
-    RUCURSION, IMPROVED_RECURSION, ITERATIVE
+    RECURSION, IMPROVED_RECURSION, ITERATIVE
 }

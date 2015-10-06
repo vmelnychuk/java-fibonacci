@@ -1,5 +1,7 @@
 package generator;
 
+import java.math.BigInteger;
+
 public interface FibonacciGenerator {
-    long getNumber(int number);
+    BigInteger getNumber(long number);
 }

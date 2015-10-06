@@ -1,8 +1,10 @@
 package generator;
 
+import java.math.BigInteger;
+
 public class ImprovedRecursionFifonacciGenerator implements FibonacciGenerator {
-    private long first;
-    private long second;
+    private BigInteger first;
+    private BigInteger second;
 
     public ImprovedRecursionFifonacciGenerator() {
         this(FibonacciConfiguration.ZERO_BASE);
@@ -10,23 +12,23 @@ public class ImprovedRecursionFifonacciGenerator implements FibonacciGenerator {
 
     public ImprovedRecursionFifonacciGenerator(FibonacciConfiguration configuration) {
         if (configuration == FibonacciConfiguration.ZERO_BASE) {
-            first = 0;
-            second = 1;
+            first = BigInteger.ZERO;
+            second = BigInteger.ONE;
         } else {
-            first = 1;
-            second = 1;
+            first = BigInteger.ONE;
+            second = BigInteger.ONE;
         }
     }
     @Override
-    public long getNumber(int number) {
+    public BigInteger getNumber(long number) {
         return fibonacciAccumulator(second, first, number);
     }
 
-    private long fibonacciAccumulator(long a, long b, int count) {
+    private BigInteger fibonacciAccumulator(BigInteger a, BigInteger b, long count) {
         if (count == 0) {
             return b;
         } else {
-            return fibonacciAccumulator(a + b, a, count - 1);
+            return fibonacciAccumulator(a.add(b), a, count - 1);
         }
     }
 }

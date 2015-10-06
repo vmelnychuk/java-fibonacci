@@ -5,7 +5,7 @@ import utils.StopWatch;
 
 public class App {
     public static void main(String[] args) {
-        int length = 40;
+        int length = 10000;
         StopWatch timer = new StopWatch();
 
         FibonacciSequenceFactory sequenceFactory = new FibonacciSequenceFactory();
@@ -15,10 +15,10 @@ public class App {
                 sequenceFactory.getSequence(length, FibonacciGeneratorType.ITERATIVE);
         System.out.println(timer.stop() + " : iterative");
 
-        timer.start();
-        FibonacciSequence sequenceWithRecursiveGenerator =
-                sequenceFactory.getSequence(length, FibonacciGeneratorType.RUCURSION);
-        System.out.println(timer.stop() + " : recursive");
+//        timer.start();
+//        FibonacciSequence sequenceWithRecursiveGenerator =
+//                sequenceFactory.getSequence(length, FibonacciGeneratorType.RECURSION);
+//        System.out.println(timer.stop() + " : recursive");
 
         timer.start();
         FibonacciSequence sequenceWithImprovedRecursiveGenerator =

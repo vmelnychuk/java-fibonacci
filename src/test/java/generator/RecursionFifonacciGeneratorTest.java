@@ -4,6 +4,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.math.BigInteger;
+
 import static org.junit.Assert.*;
 
 // test values from https://oeis.org/A000045/list
@@ -22,10 +24,10 @@ public class RecursionFifonacciGeneratorTest {
 
     @Test
     public void testGeneratorWithInitialValues() throws Exception {
-        long zero = generator.getNumber(0);
-        assertEquals(0L, zero);
-        long one = generator.getNumber(1);
-        assertEquals(1L, one);
+        BigInteger zero = generator.getNumber(0);
+        assertSame(BigInteger.ZERO, zero);
+        BigInteger one = generator.getNumber(1);
+        assertEquals(BigInteger.ONE, one);
     }
 
     @Test

@@ -1,8 +1,10 @@
 package generator;
 
+import java.math.BigInteger;
+
 public class IterativeFibonacciGenerator implements FibonacciGenerator{
-    private long first;
-    private long second;
+    private BigInteger first;
+    private BigInteger second;
 
     public IterativeFibonacciGenerator() {
         this(FibonacciConfiguration.ZERO_BASE);
@@ -10,23 +12,23 @@ public class IterativeFibonacciGenerator implements FibonacciGenerator{
 
     public IterativeFibonacciGenerator(FibonacciConfiguration configuration) {
         if (configuration == FibonacciConfiguration.ZERO_BASE) {
-            first = 0;
-            second = 1;
+            first = BigInteger.ZERO;
+            second = BigInteger.ONE;
         } else {
-            first = 1;
-            second = 1;
+            first = BigInteger.ONE;
+            second = BigInteger.ONE;
         }
     }
     @Override
-    public long getNumber(int number) {
-        long result = 0;
+    public BigInteger getNumber(long number) {
+        BigInteger result = BigInteger.ZERO;
         if (number == 0) result = first;
         else if (number == 1) result = second;
         else {
-            long f0 = first;
-            long f1 = second;
+            BigInteger f0 = first;
+            BigInteger f1 = second;
             for (int i = 1; i < number; i++) {
-                result = f0 + f1;
+                result = f0.add(f1);
                 f0 = f1;
                 f1 = result;
             }
